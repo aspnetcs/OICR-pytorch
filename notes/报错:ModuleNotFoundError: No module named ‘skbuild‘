@@ -1,0 +1,102 @@
+报错:ModuleNotFoundError: No module named ‘skbuild‘
+https://blog.csdn.net/gungnirspledge/article/details/108566415
+报错:ModuleNotFoundError: No module named ‘skbuild‘
+
+GungnirsPledge 2020-09-13 20:01:44  3331  收藏 6
+分类专栏： 深度学习环境
+版权
+报错:ModuleNotFoundError: No module named 'skbuild'
+报错
+解决办法
+一些说明
+1.
+2.
+参考文献
+记录一个pip安装 opencv-python 的报错,以便以后有据可查
+
+报错
+用命令
+
+pip3 install opencv-python
+1
+出现如下的报错:
+
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+      File "/tmp/pip-build-nmud90jq/opencv-python/setup.py", line 9, in <module>
+        import skbuild
+    ModuleNotFoundError: No module named 'skbuild'
+    
+    ----------------------------------------
+Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-nmud90jq/opencv-python/
+1
+2
+3
+4
+5
+6
+7
+8
+9
+在这里插入图片描述
+
+解决办法
+python3.x: 命令行输入
+
+pip3 install --upgrade pip
+1
+python2: 命令行输入
+
+pip install --upgrade pip
+1
+出现:
+
+pip 20.2.3 from /usr/local/lib/python3.6/dist-packages/pip (python 3.6)
+1
+就可以开心地pip install opencv-python 了
+
+一些说明
+1.
+我是用的公司的容器, 里面既有pip2(pip) 又有 pip3, 所以一定要记得区分如果你按本文的
+
+pip3 intall --upgrade pip
+1
+那么后面所有的pip isntall 都会默认调用的是pip3, 而安装的包也只能在python3的脚本下执行才可以找的到, 直接就覆盖掉了pip2(原来的pip), 于是
+
+pip3 -V
+1
+会出现下面这样的提示:
+
+WARNING: pip is being invoked by an old script wrapper. This will fail in a future version of pip.
+Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.
+To avoid this problem you can invoke Python with '-m pip' instead of running pip directly.
+pip 20.2.3 from /usr/local/lib/python3.6/dist-packages/pip (python 3.6)
+1
+2
+3
+4
+2.
+假设之前是弄的pip3, 如果你在环境里再安装个pip2, 如下:
+
+sudo apt install python pip
+pip install --upgrade pip
+pip -V
+1
+2
+3
+那么会表示这是python2的pip, 如下:
+
+pip 20.2.3 from /usr/local/lib/python2.7/dist-packages/pip (python 2.7)
+1
+自此, pip 表示 pip2, pip3 表示pip3, python 表示 python2.7, python3 表示python3.x, 分别对应和管理各自的包, 所以在安装包的时候注意区分. 推荐这样的形式来安装
+for pip2:
+
+python2 -m pip install 你要安装的包
+1
+for pip3:
+
+python3 -m pip install 你要安装的包
+1
+参考文献
+https://stackoverflow.com/questions/63448467/installing-opencv-fails-because-it-cannot-find-skbuild
