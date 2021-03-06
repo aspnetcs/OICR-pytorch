@@ -1,0 +1,45 @@
+anaconda安装opencv(python)
+https://www.cnblogs.com/jisongxie/p/10248550.html
+anaconda安装opencv(python)
+1、win10
+
+win10没有安装python，只安装了anaconda，然后使用pip安装opencv-python，版本很新，opencv_python4.0.0的。
+
+
+
+网速有点莫名其妙，时快时慢
+
+
+
+可以使用
+
+
+
+ 
+
+ 2、ubuntu16.04
+
+①使用该方法安装失败(https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/)
+
+ 卸载也很麻烦。。。。orz，可能还不是很干净
+
+②使用conda install --channel https://conda.anaconda.org/menpo opencv，一直在检查环境。直接下载包到中途也中断了。
+
+参考:
+
+https://blog.csdn.net/dcrmg/article/details/77972123
+
+https://yq.aliyun.com/ziliao/276132 
+
+https://blog.csdn.net/pursuit_zhangyu/article/details/79450865
+
+conda云的opencv包：https://anaconda.org/menpo/opencv3
+
+③最后其实conda install opencv就可以搞定了，版本是3.4.2的，这里同样需要sudo -i进入root模式。
+
+conda search opencv可以看到很多版本。
+
+
+
+安装成功。
+
