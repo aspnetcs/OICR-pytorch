@@ -1,0 +1,33 @@
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory——docker容器内问题报错
+https://blog.csdn.net/qq_35516745/article/details/103822597
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory——docker容器内问题报错
+
+Atsea0107 2020-01-03 16:23:52  13405  收藏 43
+文章标签： docker ubuntu
+版权
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory——docker容器内问题报错
+容器内libGL.so.1问题
+引用
+容器内libGL.so.1问题
+在实验室的服务器下跑yolov3的pytorch版本时，原本前几天跑的好好的，后来突然不知道怎么回事，就开始报错，一脸懵逼。
+后来百度了好多。。。emm 挺不顺利的，所以mark一下。
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory。
+
+环境是ubuntu16.04。
+指令：
+sudo apt update
+sudo apt install libgl1-mesa-glx
+就ok了
+
+可能容器内没有sudo指令
+可以
+apt-get update
+apt-get install sudo
+
+引用
+感谢各位大佬。。。。
+[1]: https://www.ohazyi.com/docker-docs/
+[2]: https://github.com/conda-forge/pygridgen-feedstock/issues/10
+————————————————
+版权声明：本文为CSDN博主「Atsea0107」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_35516745/article/details/103822597
